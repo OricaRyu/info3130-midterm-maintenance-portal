@@ -1,0 +1,1 @@
+{"tool":"axe-core 4.10.2","viewport":"375x812","date":"2026-11-06","state":"before","violations":[{"id":"region","impact":"moderate","nodes":[".utility-bar",".hero__copy",".stepper-wrap"]}],"incomplete":["color-contrast (hero gradient background)"],"passes":45}

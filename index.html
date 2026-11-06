@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Report a Maintenance Issue – Larchwood Member Portal</title>
+  <meta name="description" content="Larchwood Property Management member portal: report a maintenance issue to your property manager.">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    /* Apply a saved theme before first paint (no flash). No saved choice = follow the OS setting. */
+    (function () {
+      try {
+        var t = localStorage.getItem("larchwood.theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) { /* storage unavailable: follow the OS setting */ }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+  <!-- ===== Utility bar ===== -->
+  <div class="utility-bar">
+    <div class="container utility-bar__inner">
+      <ul class="utility-bar__contact" aria-label="Contact numbers">
+        <li>
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+          <a href="tel:+15195550142">(519) 555-0142</a>
+        </li>
+        <li class="utility-bar__emergency">
+          <span class="utility-bar__label">24/7 emergency:</span>
+          <a href="tel:+15195550199">(519) 555-0199</a>
+        </li>
+      </ul>
+      <div class="utility-bar__right">
+      <button type="button" class="theme-toggle" id="theme-toggle" data-target="dark">
+        <svg class="icon theme-toggle__sun" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg class="icon theme-toggle__moon" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span class="theme-toggle__label"><span class="visually-hidden">Switch to </span><span class="theme-toggle__text">Dark mode</span></span>
+      </button>
+      <div class="member">
+        <img class="member__avatar" src="assets/img/avatar-sebastien.jpg" alt="" width="32" height="32">
+        <span class="member__text"><span class="visually-hidden">Signed in as </span><span class="member__name">Sébastien Violette</span></span>
+        <a class="member__signout demo-link" href="#signout" data-demo="Sign out">Sign out</a>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Primary header / navigation ===== -->
+  <div class="site-header__main">
+    <div class="container site-header__inner">
+      <a class="brand demo-link" href="#home" data-demo="Home">
+        <svg class="brand__mark" aria-hidden="true" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round">
+          <path d="M4 44V22L18 10l14 12v22"/>
+          <path d="M18 44V30h8v14"/>
+          <path d="M26 16l10-8 8 7v29h-12"/>
+          <path class="brand__accent" d="M36 22v6M36 34v4"/>
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">LARCHWOOD</span>
+          <span class="brand__tag">PROPERTY MANAGEMENT</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <span class="nav-toggle__label">Menu</span>
+        <svg class="icon nav-toggle__icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Member portal">
+        <ul class="primary-nav__list">
+          <li><a class="demo-link" href="#dashboard" data-demo="Dashboard">Dashboard</a></li>
+          <li><a href="#main" data-nav="new-request" aria-current="page">Maintenance</a></li>
+          <li><a class="demo-link" href="#payments" data-demo="Payments">Payments</a></li>
+          <li><a class="demo-link" href="#documents" data-demo="Documents">Documents</a></li>
+          <li><a class="demo-link" href="#notices" data-demo="Community Notices">Notices</a></li>
+          <li><a class="demo-link" href="#contact" data-demo="Contact Us">Contact Us</a></li>
+        </ul>
+        <a class="btn btn--gold primary-nav__cta" href="#main" data-nav="new-request">
+          New request
+          <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </nav>
+    </div>
+  </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+  <!-- ===== Hero ===== -->
+  <div class="hero">
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow">Member portal · Maintenance</p>
+        <h1 class="hero__title">Report a maintenance issue</h1>
+        <p class="hero__lede">Tell us what's wrong, where it is and how urgent it is. Your property manager will review every request within one business day.</p>
+      </div>
+      <svg class="hero__art" aria-hidden="true" viewBox="0 0 260 180" fill="none" stroke-width="2" stroke-linejoin="round">
+        <path d="M10 175V90L80 35l70 55v85" stroke="#3A4B63"/>
+        <path d="M80 175v-60h30v60" stroke="#3A4B63"/>
+        <path d="M110 70l60-48 80 64v89h-80" stroke="#3A4B63"/>
+        <path d="M30 175v-70l50-40" stroke="#C9A55A"/>
+        <path d="M200 100v30M220 100v30M200 150v25" stroke="#C9A55A"/>
+        <path d="M170 22v-12h14v23" stroke="#3A4B63"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ===== Progress stepper ===== -->
+  <div class="stepper-wrap">
+    <div class="container">
+      <ol class="stepper" aria-label="Request progress">
+        <li class="stepper__step" data-step="form" aria-current="step"><span class="stepper__num" aria-hidden="true">1</span><span class="stepper__label">Describe issue</span></li>
+        <li class="stepper__step" data-step="review"><span class="stepper__num" aria-hidden="true">2</span><span class="stepper__label">Review</span></li>
+        <li class="stepper__step" data-step="confirmation"><span class="stepper__num" aria-hidden="true">3</span><span class="stepper__label">Confirmation</span></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="container layout">
+
+    <div class="layout__primary">
+
+      <!-- ================= STEP 1: FORM ================= -->
+      <section id="step-form" class="step" aria-labelledby="form-heading">
+        <div class="card">
+          <h2 id="form-heading" class="step__heading" tabindex="-1">Step 1 of 3: Describe the issue</h2>
+          <p class="hint">All fields are required unless marked <strong>(optional)</strong>.</p>
+
+          <div id="error-summary" class="error-summary" role="group" aria-labelledby="error-summary-title" tabindex="-1" hidden>
+            <h3 id="error-summary-title" class="error-summary__title">
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v6M12 16.5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span>There <span id="error-count-text">are problems</span> with your request</span>
+            </h3>
+            <ul id="error-summary-list" class="error-summary__list"></ul>
+          </div>
+
+          <form id="request-form" novalidate>
+
+            <!-- ---- Section A: Location ---- -->
+            <fieldset class="form-section">
+              <legend class="form-section__legend"><span class="form-section__num" aria-hidden="true">A</span> Where is the problem?</legend>
+
+              <div class="field">
+                <label for="property" class="field__label">Property</label>
+                <p id="property-hint" class="field__hint">Choose the building or home you rent.</p>
+                <p id="property-error" class="field__error" hidden></p>
+                <div class="select-wrap">
+                  <select id="property" name="property" aria-describedby="property-hint" required>
+                    <option value="">Select a property</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field" id="unit-field">
+                  <label for="unit" class="field__label" id="unit-label">Unit number</label>
+                  <p id="unit-hint" class="field__hint">For example, 1204.</p>
+                  <p id="unit-error" class="field__error" hidden></p>
+                  <input id="unit" name="unit" type="text" inputmode="text" autocomplete="off" maxlength="10" aria-describedby="unit-hint" required>
+                </div>
+
+                <div class="field">
+                  <label for="area" class="field__label">Room or area</label>
+                  <p id="area-hint" class="field__hint">Where in the property is the problem?</p>
+                  <p id="area-error" class="field__error" hidden></p>
+                  <div class="select-wrap">
+                    <select id="area" name="area" aria-describedby="area-hint" required>
+                      <option value="">Select an area</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <p id="property-note" class="property-note" aria-live="polite"></p>
+            </fieldset>
+
+            <!-- ---- Section B: Issue ---- -->
+            <fieldset class="form-section">
+              <legend class="form-section__legend"><span class="form-section__num" aria-hidden="true">B</span> What is the problem?</legend>
+
+              <div class="field">
+                <label for="category" class="field__label">Category</label>
+                <p id="category-error" class="field__error" hidden></p>
+                <div class="select-wrap">
+                  <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+                  </select>
+                </div>
+              </div>
+
+              <fieldset class="field field--group" id="urgency-group" aria-describedby="urgency-hint">
+                <legend class="field__label">Urgency</legend>
+                <p id="urgency-hint" class="field__hint">Pick the option that best matches the situation right now.</p>
+                <p id="urgency-error" class="field__error" hidden></p>
+                <div class="choice-cards">
+                  <label class="choice-card choice-card--emergency">
+                    <input type="radio" name="urgency" value="emergency" required>
+                    <span class="choice-card__body">
+                      <span class="choice-card__title"><span class="pill pill--emergency">Emergency</span></span>
+                      <span class="choice-card__desc">Risk to safety or property: flooding, no heat in winter, gas smell, sparking outlet, no working toilet.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="urgency" value="urgent">
+                    <span class="choice-card__body">
+                      <span class="choice-card__title"><span class="pill pill--urgent">Urgent</span></span>
+                      <span class="choice-card__desc">Affects daily living: broken fridge, no hot water, lock not working.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="urgency" value="routine">
+                    <span class="choice-card__body">
+                      <span class="choice-card__title"><span class="pill pill--routine">Routine</span></span>
+                      <span class="choice-card__desc">Needs fixing but can wait a few days: dripping tap, loose cabinet door.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="urgency" value="low">
+                    <span class="choice-card__body">
+                      <span class="choice-card__title"><span class="pill pill--low">Low</span></span>
+                      <span class="choice-card__desc">Cosmetic or minor: scuffed paint, burnt-out closet bulb.</span>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div id="emergency-alert" class="callout callout--danger" hidden>
+                <svg class="icon callout__icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4M12 17v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <div>
+                  <p class="callout__title">Emergency? Call us now as well.</p>
+                  <p>Online requests are not monitored overnight. For an emergency, call <a href="tel:+15195550199">(519) 555-0199</a> after submitting. If there is fire, a gas smell or anyone is in danger, leave the building and call <a href="tel:911">911</a>.</p>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="summary" class="field__label">Short summary</label>
+                <p id="summary-hint" class="field__hint">One line, for example "Kitchen sink leaking under cabinet". Up to 80 characters.</p>
+                <p id="summary-error" class="field__error" hidden></p>
+                <input id="summary" name="summary" type="text" maxlength="80" aria-describedby="summary-hint" required>
+              </div>
+
+              <div class="field">
+                <label for="description" class="field__label">Describe the issue</label>
+                <p id="description-hint" class="field__hint">What happened, when you noticed it, and anything you have already tried. At least 20 characters.</p>
+                <p id="description-error" class="field__error" hidden></p>
+                <textarea id="description" name="description" rows="6" maxlength="1000" aria-describedby="description-hint description-count" required></textarea>
+                <p id="description-count" class="field__count">0 of 1000 characters</p>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="started" class="field__label">When did it start? <span class="optional">(optional)</span></label>
+                  <p id="started-hint" class="field__hint">An approximate date is fine. Leave blank if you're not sure.</p>
+                  <p id="started-error" class="field__error" hidden></p>
+                  <input id="started" name="started" type="date" aria-describedby="started-hint">
+                </div>
+                <div class="field">
+                  <label for="photos" class="field__label">Photos <span class="optional">(optional)</span></label>
+                  <p id="photos-hint" class="field__hint">Up to 3 images (JPG or PNG). Photos help us bring the right parts.</p>
+                  <p id="photos-error" class="field__error" hidden></p>
+                  <input id="photos" name="photos" type="file" accept="image/png,image/jpeg" multiple aria-describedby="photos-hint">
+                </div>
+              </div>
+              <ul id="photo-list" class="photo-list" aria-label="Selected photos" hidden></ul>
+            </fieldset>
+
+            <!-- ---- Section C: Access & contact ---- -->
+            <fieldset class="form-section">
+              <legend class="form-section__legend"><span class="form-section__num" aria-hidden="true">C</span> Access and contact</legend>
+
+              <fieldset class="field field--group" id="entry-group">
+                <legend class="field__label">May maintenance staff enter if you are not home?</legend>
+                <p id="entry-error" class="field__error" hidden></p>
+                <div class="radio-inline">
+                  <label class="radio"><input type="radio" name="entry" value="yes" required> <span>Yes, they may enter</span></label>
+                  <label class="radio"><input type="radio" name="entry" value="no"> <span>No, contact me to book a time</span></label>
+                </div>
+              </fieldset>
+
+              <div class="field">
+                <label class="checkbox"><input type="checkbox" id="pets" name="pets"> <span>There are pets in the unit</span></label>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="name" class="field__label">Your name</label>
+                  <p id="name-hint" class="field__hint">Pre-filled from your account. Change it if someone else is reporting.</p>
+                  <p id="name-error" class="field__error" hidden></p>
+                  <input id="name" name="name" type="text" autocomplete="name" aria-describedby="name-hint" required>
+                </div>
+                <div class="field">
+                  <label for="email" class="field__label">Email <span class="optional">(optional)</span></label>
+                  <p id="email-hint" class="field__hint">Pre-filled from your account. Used for updates on this request.</p>
+                  <p id="email-error" class="field__error" hidden></p>
+                  <input id="email" name="email" type="email" autocomplete="email" spellcheck="false" aria-describedby="email-hint">
+                </div>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <label for="phone" class="field__label">Phone <span class="optional">(optional)</span></label>
+                  <p id="phone-hint" class="field__hint">10 digits, for example 519-555-0123.</p>
+                  <p id="phone-error" class="field__error" hidden></p>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="phone-hint">
+                </div>
+                <fieldset class="field field--group" id="contact-group">
+                  <legend class="field__label">Preferred contact method</legend>
+                  <p class="field__hint">How should we reach you about this request?</p>
+                  <p id="contact-error" class="field__error" hidden></p>
+                  <div class="radio-inline">
+                    <label class="radio"><input type="radio" name="contact" value="email" checked> <span>Email</span></label>
+                    <label class="radio"><input type="radio" name="contact" value="phone"> <span>Phone</span></label>
+                  </div>
+                </fieldset>
+              </div>
+            </fieldset>
+
+            <div class="form-actions">
+              <button type="button" id="reset-btn" class="btn btn--ghost">Clear form</button>
+              <button type="submit" class="btn btn--primary">
+                Review request
+                <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ================= STEP 2: REVIEW ================= -->
+      <section id="step-review" class="step" aria-labelledby="review-heading" hidden>
+        <div class="card">
+          <h2 id="review-heading" class="step__heading" tabindex="-1">Step 2 of 3: Review your request</h2>
+          <p class="hint">Check the details below. Nothing has been sent yet. Use <strong>Change</strong> to fix anything.</p>
+          <div id="review-content" class="summary"></div>
+          <div class="form-actions">
+            <button type="button" id="back-btn" class="btn btn--ghost">
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Back to edit
+            </button>
+            <button type="button" id="submit-btn" class="btn btn--primary">
+              Submit request
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STEP 3: CONFIRMATION ================= -->
+      <section id="step-confirmation" class="step" aria-labelledby="confirmation-heading" hidden>
+        <div class="card">
+          <div class="confirm-banner">
+            <svg class="confirm-banner__icon" aria-hidden="true" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="currentColor"/><path d="M14 24.5l7 7 13-14" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div>
+              <h2 id="confirmation-heading" class="step__heading" tabindex="-1">Request submitted</h2>
+              <p class="confirm-banner__ref">Reference number <strong id="ref-number"></strong></p>
+              <p class="confirm-banner__time">Submitted <time id="submitted-at"></time></p>
+              <p class="confirm-banner__status">Status: <span class="pill pill--status" id="request-status">Submitted</span> <span class="muted">Waiting for your property manager to review</span></p>
+            </div>
+          </div>
+
+          <h3 class="subheading">What happens next</h3>
+          <ol class="timeline">
+            <li class="timeline__item timeline__item--done"><span class="timeline__title">Request received</span><span class="timeline__desc">Your property manager has your request.</span></li>
+            <li class="timeline__item"><span class="timeline__title">Reviewed and assigned</span><span class="timeline__desc" id="next-review"></span></li>
+            <li class="timeline__item"><span class="timeline__title">Repair visit</span><span class="timeline__desc" id="next-visit"></span></li>
+          </ol>
+
+          <div id="confirm-emergency" class="callout callout--danger" hidden>
+            <svg class="icon callout__icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 10v4M12 17v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div>
+              <p class="callout__title">You marked this as an emergency</p>
+              <p>Please also call the 24/7 line now: <a href="tel:+15195550199">(519) 555-0199</a>.</p>
+            </div>
+          </div>
+
+          <h3 class="subheading">Details you submitted</h3>
+          <div id="confirmation-content" class="summary"></div>
+
+          <div class="form-actions">
+            <button type="button" id="print-btn" class="btn btn--ghost">
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 17H4v-7h16v7h-3M7 14h10v7H7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+              Print or save
+            </button>
+            <button type="button" id="another-btn" class="btn btn--primary">
+              Submit another request
+              <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ===== Sidebar ===== -->
+    <aside class="layout__aside" aria-label="Request help and history">
+      <section class="side-card side-card--dark" aria-labelledby="emergency-heading">
+        <h2 id="emergency-heading" class="side-card__title">Emergency line</h2>
+        <p>For flooding, gas smells, fire, no heat in winter or other urgent safety risks, call any time:</p>
+        <a class="side-card__phone" href="tel:+15195550199">(519) 555-0199</a>
+      </section>
+
+      <section class="side-card" aria-labelledby="tips-heading">
+        <h2 id="tips-heading" class="side-card__title">Tips for a faster fix</h2>
+        <ul class="tips">
+          <li>Describe exactly where the problem is (for example, "under the left side of the kitchen sink").</li>
+          <li>Say when it started and whether it is getting worse.</li>
+          <li>Add a photo if you can do so safely.</li>
+          <li>One issue per request helps us send the right trade.</li>
+        </ul>
+      </section>
+
+      <section class="side-card" aria-labelledby="recent-heading">
+        <h2 id="recent-heading" class="side-card__title">Your recent requests</h2>
+        <ul id="recent-list" class="recent-list"></ul>
+        <p id="recent-empty" class="hint">You have not submitted any requests on this device yet.</p>
+      </section>
+    </aside>
+  </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <p>© 2026 Larchwood Property Management (fictional company, created for an INFO3130 course project).</p>
+      <p>This prototype does not send data anywhere. Requests are saved only in this browser.</p>
+    </div>
+  </footer>
+
+  <!-- Toast for demo-only links -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- Clear form confirmation -->
+  <dialog id="reset-dialog" class="dialog" aria-labelledby="reset-dialog-title" aria-describedby="reset-dialog-desc">
+    <h2 id="reset-dialog-title" class="dialog__title">Clear the form?</h2>
+    <p id="reset-dialog-desc">Everything you have entered will be removed. This cannot be undone.</p>
+    <div class="dialog__actions">
+      <button type="button" class="btn btn--ghost" id="reset-cancel">Keep my answers</button>
+      <button type="button" class="btn btn--danger" id="reset-confirm">Clear form</button>
+    </div>
+  </dialog>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

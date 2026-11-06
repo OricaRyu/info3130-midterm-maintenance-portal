@@ -1,0 +1,13 @@
+{
+  "tool": "axe-core 4.10.2 (tags: wcag2a, wcag2aa, wcag21a, wcag21aa, wcag22aa, best-practice)",
+  "date": "2026-11-06",
+  "state": "after fixes",
+  "viewports": ["375x812", "320x700", "1440x900"],
+  "results": {
+    "form (empty)":            { "violations": 0, "passes": 45, "incomplete": ["color-contrast (hero gradient, verified manually)"] },
+    "form (validation errors)":{ "violations": 0, "passes": 48, "incomplete": ["color-contrast (hero gradient, verified manually)"] },
+    "review":                  { "violations": 0, "passes": 42, "incomplete": ["color-contrast (hero gradient, verified manually)"] },
+    "confirmation":            { "violations": 0, "passes": 42, "incomplete": ["color-contrast (hero gradient, verified manually)"] }
+  },
+  "horizontal_overflow": { "320px": false, "375px": false, "1024px": false, "1440px": false }
+}
