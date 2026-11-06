@@ -648,7 +648,7 @@
         toggle.focus();
       }
     });
-    window.matchMedia("(min-width: 64em)").addEventListener("change", function () { setOpen(false); });
+    window.matchMedia("(min-width: 72em)").addEventListener("change", function () { setOpen(false); });
     $$("a", nav).forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
   }
 

@@ -60,6 +60,8 @@ Colour never carries meaning by itself (1.4.1). Urgency pills always show text (
 | 6 | Logo mark shrank to 0 width in the desktop header at 1024 px | Visual | Manual test | `flex: none` on the brand |
 | 7 | Changing steps scrolled to page top, so on mobile the new content was below the fold | 2.4.3 / usability | Manual mobile test | Scrolls the stepper into view and focuses the step heading |
 | 8 | The theme toggle and member info made the mobile utility bar 3 rows (120 px) tall | 1.4.10 / usability | Manual test at 375 px | Below 640 px the toggle is icon-only (36×36 px, accessible name "Dark mode" kept), so the bar is 2 rows (88 px) |
+| 9 | At 1024 px (1009 px usable with a scrollbar) the inline nav needed ~1068 px, so the page scrolled sideways by 35 px | 1.4.10 Reflow | Overflow check on the deployed site (`scrollWidth` vs `clientWidth`) | Inline nav now starts at 72em (1152 px); between 1024 and 1152 px the Menu button is used |
+| 10 | At 320 px the logo plus the "Menu" button overflowed by 5 px | 1.4.10 Reflow | Same overflow check at 320 px | Below 360 px the Menu button is icon-only (44 × 44 px), with "Menu" kept as its accessible name |
 
 ## 3. Implemented accessibility features (by criterion)
 

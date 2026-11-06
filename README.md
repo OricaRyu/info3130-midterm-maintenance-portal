@@ -19,7 +19,7 @@ Plain HTML, CSS and JavaScript. There is no build step and no backend, so submis
 
 ```
 index.html          markup for all three states
-css/styles.css      mobile-first styles (breakpoints 40em / 64em)
+css/styles.css      mobile-first styles (breakpoints 40em / 64em / 72em)
 js/data.js          sample properties, categories, urgency rules
 js/app.js           form logic, validation, step navigation
 assets/img/         avatar, favicon
